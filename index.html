@@ -995,7 +995,7 @@
 
   <div style="display:flex; gap:30px; align-items:center; margin-bottom:20px" data-step="3">
     <div class="bp-display">
-      <div class="bp-label">Threshold (ESC/ESH 2023)</div>
+      <div class="bp-label">ESH 2023 · ESC 2024</div>
       <div class="bp-num">
         <span class="sys">≥140</span><span class="slash">/</span><span class="dia">≥90</span>
       </div>
@@ -1012,18 +1012,80 @@
 
   <table class="class-table" data-step="4">
     <thead>
-      <tr><th>Category</th><th>Systolic (mmHg)</th><th></th><th>Diastolic (mmHg)</th></tr>
+      <tr><th>Category (ACC/AHA 2017 staging)</th><th>Systolic (mmHg)</th><th></th><th>Diastolic (mmHg)</th></tr>
     </thead>
     <tbody>
       <tr class="normal"><td>Normal</td><td class="code">&lt; 120</td><td>and</td><td class="code">&lt; 80</td></tr>
-      <tr class="elev"><td>Elevated / High-normal</td><td class="code">120–129</td><td>and</td><td class="code">&lt; 80</td></tr>
+      <tr class="elev"><td>Elevated</td><td class="code">120–129</td><td>and</td><td class="code">&lt; 80</td></tr>
       <tr class="s1"><td>Stage 1 HTN</td><td class="code">130–139</td><td>or</td><td class="code">80–89</td></tr>
       <tr class="s2"><td>Stage 2 HTN</td><td class="code">≥ 140</td><td>or</td><td class="code">≥ 90</td></tr>
-      <tr class="crisis"><td>Hypertensive crisis</td><td class="code">&gt; 180</td><td>and/or</td><td class="code">&gt; 120</td></tr>
+      <tr class="crisis"><td>Hypertensive crisis</td><td class="code">≥ 180</td><td>and/or</td><td class="code">≥ 120</td></tr>
     </tbody>
   </table>
 
-  <p class="footnote" data-step="5">Diagnosis requires <b>≥2 elevated readings on ≥2 separate occasions</b> — or confirmation by ambulatory monitoring.</p>
+  <p class="footnote" data-step="5">
+    ESH 2023 calls 130–139/85–89 <b>“high-normal”</b>; ESC 2024 introduced a separate <b>“Elevated BP”</b> band (<b>120–139 / 70–89</b>) — partial convergence with the US.
+    Diagnose with <b>out-of-office BP (ABPM/HBPM) preferred</b>, or ≥2 elevated office readings on ≥2 occasions.
+    <br><span style="opacity:.6">Sources: Mancia 2023 (ESH); McEvoy 2024 (ESC); Whelton 2017 (ACC/AHA).</span>
+  </p>
+</section>
+
+<!-- ══════════════ SLIDE 2b — HOW THE GUIDELINES EVOLVED ══════════════ -->
+<section class="slide">
+  <div class="badge" data-step="1" style="margin-bottom:14px">A moving target</div>
+  <h2 class="slide-title" data-step="1">How the <span class="accent">numbers</span> kept changing</h2>
+  <p class="slide-subtitle" data-step="2">The threshold for “hypertension” has been re-drawn five times in 20 years — driven by trial evidence, especially <b>SPRINT (2015)</b>.</p>
+
+  <div style="display:grid; grid-template-columns: 110px 1fr; gap: 10px 18px; max-width: 1100px; width: 100%; font-size:.92em">
+
+    <div data-step="3" style="color:var(--info); font-weight:700; text-align:right; padding-top:8px">2003</div>
+    <div data-step="3" class="card">
+      <h3 style="font-size:1em">JNC 7 <span style="color:var(--muted); font-weight:400; font-size:.85em">— Chobanian et al., JAMA 2003;289:2560</span></h3>
+      <p>HTN ≥ <b>140/90</b>. Created <b>“prehypertension”</b> (120–139 / 80–89) to flag rising risk.</p>
+    </div>
+
+    <div data-step="4" style="color:var(--info); font-weight:700; text-align:right; padding-top:8px">2014</div>
+    <div data-step="4" class="card">
+      <h3 style="font-size:1em">JNC 8 <span style="color:var(--muted); font-weight:400; font-size:.85em">— James et al., JAMA 2014;311:507</span></h3>
+      <p><b>Relaxed</b> treatment threshold in ≥60 yrs to ≥150/90 (controversial; ESH/AHA disagreed). Did <b>not</b> redefine staging.</p>
+    </div>
+
+    <div data-step="5" style="color:var(--warn); font-weight:700; text-align:right; padding-top:8px">2015</div>
+    <div data-step="5" class="card warn">
+      <h3 style="font-size:1em">⚡ SPRINT trial <span style="color:var(--muted); font-weight:400; font-size:.85em">— SPRINT Research Group, NEJM 2015;373:2103</span></h3>
+      <p>Intensive target SBP &lt;120 vs &lt;140 → <b>−25 % MACE, −27 % all-cause mortality</b> in high-CV-risk non-diabetics. Reset the field.</p>
+    </div>
+
+    <div data-step="6" style="color:var(--danger); font-weight:700; text-align:right; padding-top:8px">2017</div>
+    <div data-step="6" class="card danger">
+      <h3 style="font-size:1em">ACC/AHA 2017 <span style="color:var(--muted); font-weight:400; font-size:.85em">— Whelton et al., Hypertension 2018;71:e13</span></h3>
+      <p>Lowered HTN threshold to <b>≥130/80</b>. New staging: Elevated 120–129/&lt;80, Stage 1 130–139/80–89, Stage 2 ≥140/90. Overnight, <b>~46 % of US adults</b> became hypertensive.</p>
+    </div>
+
+    <div data-step="7" style="color:var(--info); font-weight:700; text-align:right; padding-top:8px">2018</div>
+    <div data-step="7" class="card">
+      <h3 style="font-size:1em">ESC/ESH 2018 <span style="color:var(--muted); font-weight:400; font-size:.85em">— Williams et al., Eur Heart J 2018;39:3021</span></h3>
+      <p>Europe <b>kept ≥140/90</b>. Endorsed lower targets (&lt;130/80) in tolerated, high-risk patients — but rejected US relabelling.</p>
+    </div>
+
+    <div data-step="8" style="color:var(--info); font-weight:700; text-align:right; padding-top:8px">2023</div>
+    <div data-step="8" class="card">
+      <h3 style="font-size:1em">ESH 2023 <span style="color:var(--muted); font-weight:400; font-size:.85em">— Mancia et al., J Hypertens 2023;41:1874</span></h3>
+      <p>Reaffirmed <b>≥140/90</b>. Pushed <b>single-pill combinations as first step</b> in nearly all patients.</p>
+    </div>
+
+    <div data-step="9" style="color:var(--accent); font-weight:700; text-align:right; padding-top:8px">2024</div>
+    <div data-step="9" class="card accent">
+      <h3 style="font-size:1em">ESC 2024 <span style="color:var(--muted); font-weight:400; font-size:.85em">— McEvoy et al., Eur Heart J 2024;45:3912</span></h3>
+      <p>HTN still ≥140/90, but a new <b>“Elevated BP”</b> category (120–139 / 70–89) bridges toward the US view. New <b>treatment target SBP 120–129 mmHg</b> if tolerated (post-SPRINT/STEP). Out-of-office BP strongly recommended.</p>
+    </div>
+
+  </div>
+
+  <p class="footnote" data-step="10">
+    <b>Bottom line:</b> Europe and the US still disagree on the <i>label</i>, but converge on the <i>action</i> — treat earlier, aim lower, prefer combination therapy.
+    <br><span style="opacity:.6">Verified against original guideline texts (JAMA, NEJM, Hypertension, Eur Heart J, J Hypertens) and ACC.org guideline summary, Sept 2024.</span>
+  </p>
 </section>
 
 <!-- ══════════════ SLIDE 3 — EPIDEMIOLOGY ══════════════ -->
@@ -1035,19 +1097,19 @@
   <div class="grid-4" style="max-width:1100px; width:100%; margin-bottom:24px" data-step="3">
     <div class="stat-big danger">
       <div class="num">1.28 B</div>
-      <div class="lbl">adults worldwide<br/>have hypertension <span style="color:var(--muted)">(WHO)</span></div>
+      <div class="lbl">adults aged 30–79<br/>have hypertension <span style="color:var(--muted)">(NCD-RisC, Lancet 2021)</span></div>
     </div>
     <div class="stat-big">
       <div class="num">~46%</div>
-      <div class="lbl">of affected adults are<br/><b>unaware</b> they have it</div>
+      <div class="lbl">of affected adults are<br/><b>unaware</b> they have it <span style="color:var(--muted)">(WHO 2023)</span></div>
     </div>
     <div class="stat-big danger">
       <div class="num">10.8 M</div>
-      <div class="lbl">deaths/year attributable<br/>to elevated BP</div>
+      <div class="lbl">deaths/year attributable<br/>to elevated SBP <span style="color:var(--muted)">(GBD 2019)</span></div>
     </div>
     <div class="stat-big">
       <div class="num">~21%</div>
-      <div class="lbl">achieve adequate<br/>BP control on therapy</div>
+      <div class="lbl">of <b>treated</b> adults achieve control<br/>(only ~14% of <b>all</b> hypertensives)</div>
     </div>
   </div>
 
@@ -1195,7 +1257,7 @@
   <div style="display:flex; gap:14px; margin-top:14px" data-step="8">
     <div class="pill" style="background:rgba(76,201,240,.18); color:var(--info)">💊 ACEi block ACE</div>
     <div class="pill" style="background:rgba(76,201,240,.18); color:var(--info)">💊 ARBs block AT1</div>
-    <div class="pill" style="background:rgba(76,201,240,.18); color:var(--info)">💊 Aliskiren blocks Renin</div>
+    <div class="pill" style="background:rgba(76,201,240,.18); color:var(--info)">💊 Aliskiren blocks Renin <span style="opacity:.7">(rare — ALTITUDE harm with ACEi/ARB in DM/CKD)</span></div>
     <div class="pill" style="background:rgba(76,201,240,.18); color:var(--info)">💊 Spironolactone blocks Aldosterone</div>
   </div>
 </section>
@@ -1370,13 +1432,13 @@
     <div class="ls-tile" data-step="3">
       <div class="ico">🧂</div>
       <h4>↓ Sodium intake</h4>
-      <p>&lt; 2 g Na⁺ (5 g salt) per day</p>
+      <p>&lt; 2 g Na⁺ (&lt; 5 g salt) per day <span style="opacity:.6">(WHO)</span></p>
       <div class="impact">−2 to −8 mmHg</div>
     </div>
     <div class="ls-tile" data-step="3">
       <div class="ico">🥗</div>
       <h4>DASH diet</h4>
-      <p>Fruits, veg, whole grains, low-fat dairy, low saturated fat</p>
+      <p>Fruits, veg, whole grains, low-fat dairy, low saturated fat <span style="opacity:.6">(Sacks 2001, NEJM)</span></p>
       <div class="impact">−8 to −14 mmHg</div>
     </div>
     <div class="ls-tile" data-step="4">
@@ -1394,7 +1456,7 @@
     <div class="ls-tile" data-step="5">
       <div class="ico">🍷</div>
       <h4>↓ Alcohol</h4>
-      <p>≤ 2 units/day (♂) · ≤ 1 unit/day (♀)</p>
+      <p>≤ 14 units/week (♂) · ≤ 8 units/week (♀) <span style="opacity:.6">— ESH 2023</span></p>
       <div class="impact">−2 to −4 mmHg</div>
     </div>
     <div class="ls-tile" data-step="5">
@@ -1421,13 +1483,13 @@
         <td class="cls">ACE inhibitors<span class="examples">enalapril, ramipril, perindopril</span></td>
         <td class="mech">Block conversion Ang I → Ang II</td>
         <td class="ind">DM, CKD, HF, post-MI</td>
-        <td class="se">Cough, ↑K⁺, AKI, angioedema</td>
+        <td class="se">Cough, ↑K⁺, AKI, angioedema · <b>contraindicated in pregnancy</b></td>
       </tr>
       <tr data-step="3">
         <td class="cls">ARBs<span class="examples">losartan, valsartan, telmisartan</span></td>
         <td class="mech">Block AT₁ receptor</td>
         <td class="ind">Same as ACEi · ACEi-intolerant</td>
-        <td class="se">↑K⁺, AKI (no cough)</td>
+        <td class="se">↑K⁺, AKI (no cough) · <b>contraindicated in pregnancy</b></td>
       </tr>
       <tr data-step="4">
         <td class="cls">CCB (dihydropyridine)<span class="examples">amlodipine, nifedipine</span></td>
@@ -1444,8 +1506,8 @@
       <tr data-step="5">
         <td class="cls">β-blockers<span class="examples">bisoprolol, metoprolol, carvedilol</span></td>
         <td class="mech">↓ HR &amp; contractility · ↓ renin</td>
-        <td class="ind">Post-MI, HF, AF, angina, young high-renin</td>
-        <td class="se">Bradycardia, fatigue, bronchospasm</td>
+        <td class="ind"><b>Only with compelling indication:</b> post-MI, HF, AF, angina, pregnancy (labetalol)</td>
+        <td class="se">Bradycardia, fatigue, bronchospasm · <i>not first-line in NICE/JNC-8/ACC-AHA</i></td>
       </tr>
       <tr data-step="5">
         <td class="cls">Mineralocorticoid antagonists<span class="examples">spironolactone, eplerenone</span></td>
@@ -1457,8 +1519,8 @@
   </table>
 
   <div class="card accent" style="max-width:1050px; margin-top:16px" data-step="6">
-    <h3 style="color:var(--accent)">📋 ESC/ESH 2023 algorithm — in one line</h3>
-    <p style="color:var(--ink)">Start with <b>ACEi/ARB + CCB or thiazide</b> → if uncontrolled → triple therapy → if still uncontrolled → add <b>spironolactone</b> (= resistant HTN).</p>
+    <h3 style="color:var(--accent)">📋 ESH 2023 / ESC 2024 algorithm — in one line</h3>
+    <p style="color:var(--ink)">Start with a <b>single-pill ACEi/ARB + CCB or thiazide</b> → if uncontrolled → triple SPC → still uncontrolled → add <b>spironolactone</b> (= resistant HTN). Aim &lt; 140/90 first; then &lt; 130/80 if tolerated.</p>
   </div>
 </section>
 
@@ -1466,13 +1528,13 @@
 <section class="slide">
   <div class="badge" data-step="1" style="margin-bottom:14px">Acute care</div>
   <h2 class="slide-title" data-step="1">Hypertensive <span class="accent">crisis</span></h2>
-  <p class="slide-subtitle" data-step="2">BP &gt; 180/120 mmHg — but the next question is the only one that matters: <b>is there acute end-organ damage?</b></p>
+  <p class="slide-subtitle" data-step="2">SBP ≥ 180 <b>or</b> DBP ≥ 120 mmHg — but the next question is the only one that matters: <b>is there acute end-organ damage?</b></p>
 
   <div class="crisis-split">
     <div class="crisis-card" data-step="3">
       <div class="label">Without acute organ damage</div>
       <h3>Hypertensive Urgency</h3>
-      <div class="bp-line">BP &gt; 180/120 — NO target-organ damage</div>
+      <div class="bp-line">SBP ≥ 180 or DBP ≥ 120 — NO target-organ damage</div>
       <ul>
         <li>Headache, anxiety, often asymptomatic</li>
         <li>No new neurological / renal / cardiac signs</li>
@@ -1485,14 +1547,15 @@
     <div class="crisis-card emergency" data-step="4">
       <div class="label">With acute organ damage</div>
       <h3>Hypertensive Emergency</h3>
-      <div class="bp-line">BP &gt; 180/120 + ACUTE end-organ damage</div>
+      <div class="bp-line">SBP ≥ 180 or DBP ≥ 120 + ACUTE end-organ damage</div>
       <ul>
         <li>Encephalopathy, stroke, seizures</li>
         <li>Acute LV failure / pulmonary edema</li>
         <li>ACS, aortic dissection</li>
         <li>AKI, eclampsia, papilledema (KW IV)</li>
       </ul>
-      <div class="action">🚨 Manage: IV agents in ICU · ↓ MAP by ≤ 25% in 1st hour · NEVER drop too fast (watch-piston ischaemia)</div>
+      <div class="action">🚨 Manage: IV agents in ICU · ↓ MAP by ≤ 25% in 1st hour · NEVER drop too fast (<b>watershed ischaemia</b>)</div>
+      <div class="action" style="margin-top:6px">⚠ Exceptions: <b>aortic dissection</b> SBP &lt; 120 in &lt;20 min · <b>ischaemic stroke</b> permissive HTN unless tPA · <b>eclampsia</b> rapid IV labetalol/hydralazine</div>
     </div>
   </div>
 
@@ -1536,8 +1599,61 @@
   </div>
 </section>
 
+<!-- ══════════════ SLIDE 12 — REFERENCES ══════════════ -->
+<section class="slide">
+  <div class="badge" data-step="1" style="margin-bottom:14px">References</div>
+  <h2 class="slide-title" data-step="1">Sources &amp; <span class="accent">further reading</span></h2>
+  <p class="slide-subtitle" data-step="2">All numbers, thresholds and algorithms in this deck cross-checked against the primary literature.</p>
+
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 14px 28px; max-width: 1150px; width: 100%; font-size:.82em; line-height:1.5">
+
+    <div data-step="3">
+      <h3 style="color:var(--info); font-size:.95em; margin-bottom:6px">📘 Guidelines</h3>
+      <ol style="padding-left:18px; color:var(--muted)">
+        <li><b>Mancia G, Kreutz R, et al.</b> 2023 ESH Guidelines for the management of arterial hypertension. <i>J Hypertens</i> 2023;41:1874–2071.</li>
+        <li><b>McEvoy JW, McCarthy CP, et al.</b> 2024 ESC Guidelines for the management of elevated BP and hypertension. <i>Eur Heart J</i> 2024;45:3912–4018.</li>
+        <li><b>Whelton PK, Carey RM, et al.</b> 2017 ACC/AHA/AAPA/… Guideline for the prevention, detection, evaluation and management of high BP in adults. <i>Hypertension</i> 2018;71:e13–e115.</li>
+        <li><b>Williams B, Mancia G, et al.</b> 2018 ESC/ESH Guidelines. <i>Eur Heart J</i> 2018;39:3021–3104.</li>
+        <li><b>James PA, Oparil S, et al.</b> 2014 evidence-based guideline (JNC 8). <i>JAMA</i> 2014;311:507–520.</li>
+        <li><b>Chobanian AV, et al.</b> Seventh report of the JNC (JNC 7). <i>JAMA</i> 2003;289:2560–2572.</li>
+        <li><b>NICE NG136.</b> Hypertension in adults: diagnosis and management. 2019 (updated 2023).</li>
+      </ol>
+    </div>
+
+    <div data-step="4">
+      <h3 style="color:var(--warn); font-size:.95em; margin-bottom:6px">⚡ Landmark trials</h3>
+      <ol style="padding-left:18px; color:var(--muted)">
+        <li><b>SPRINT Research Group.</b> A randomized trial of intensive vs standard BP control. <i>NEJM</i> 2015;373:2103–2116.</li>
+        <li><b>Sacks FM, Svetkey LP, et al.</b> Effects on BP of reduced dietary sodium and the DASH diet. <i>NEJM</i> 2001;344:3–10.</li>
+        <li><b>Zhang W, Zhang S, et al.</b> Trial of intensive BP control in older patients (STEP). <i>NEJM</i> 2021;385:1268–1279.</li>
+        <li><b>Parving HH, et al.</b> Cardiorenal end points in a trial of aliskiren (ALTITUDE). <i>NEJM</i> 2012;367:2204–2213.</li>
+        <li><b>ALLHAT Officers.</b> ALLHAT trial. <i>JAMA</i> 2002;288:2981–2997.</li>
+      </ol>
+
+      <h3 style="color:var(--good); font-size:.95em; margin:14px 0 6px">🌍 Epidemiology</h3>
+      <ol style="padding-left:18px; color:var(--muted)">
+        <li><b>NCD-RisC.</b> Worldwide trends in hypertension prevalence and progress in treatment and control 1990–2019. <i>Lancet</i> 2021;398:957–980.</li>
+        <li><b>WHO.</b> Global report on hypertension: the race against a silent killer. Geneva, 2023.</li>
+        <li><b>GBD 2019 Risk Factors Collaborators.</b> Global burden of 87 risk factors. <i>Lancet</i> 2020;396:1223–1249.</li>
+      </ol>
+    </div>
+
+    <div data-step="5" style="grid-column: 1 / 3">
+      <h3 style="color:var(--accent); font-size:.95em; margin-bottom:6px">📚 Background</h3>
+      <ol style="padding-left:18px; color:var(--muted)">
+        <li><b>Page IH.</b> Pathogenesis of arterial hypertension. <i>JAMA</i> 1949;140:451–458 — the original mosaic theory.</li>
+        <li><b>Carey RM, Calhoun DA, et al.</b> Resistant hypertension: detection, evaluation and management — AHA scientific statement. <i>Hypertension</i> 2018;72:e53–e90.</li>
+        <li><b>USRDS Annual Data Report</b> 2023 — incident ESRD by primary cause.</li>
+      </ol>
+    </div>
+
+  </div>
+
+  <p class="footnote" data-step="6">All references verified against PubMed / DOI; guideline texts cross-checked Sept 2024 (ACC.org, escardio.org).</p>
+</section>
+
 <!-- Navigation -->
-<div class="slide-counter" id="counter">1 / 11</div>
+<div class="slide-counter" id="counter">1 / 13</div>
 <div class="nav-hint">← → · space · click</div>
 <div class="mobile-nav">
   <button id="btnPrev">←</button>
@@ -1674,8 +1790,8 @@
   }
 
   const stepHandlers = {
-    // Slide 3 — humans grid animation
-    '2-4': () => {
+    // Slide 3 (index 3) — humans grid animation
+    '3-4': () => {
       const grid = document.getElementById('humansGrid');
       grid.innerHTML = '';
       for (let i = 0; i < 100; i++) {
@@ -1687,16 +1803,16 @@
       const indices = [...Array(100).keys()].sort(() => Math.random() - 0.5).slice(0, 33);
       indices.forEach((idx, i) => setTimeout(() => cells[idx].classList.add('lit'), i * 35));
     },
-    // Slide 5 — RAAS cascade reveal
-    '4-3': () => document.getElementById('raas-1').classList.add('revealed'),
-    '4-4': () => {
+    // Slide 5 (index 5) — RAAS cascade reveal
+    '5-3': () => document.getElementById('raas-1').classList.add('revealed'),
+    '5-4': () => {
       ['raas-2','raas-3','raas-4'].forEach((id,i) =>
         setTimeout(() => document.getElementById(id).classList.add('revealed'), i*350));
     },
-    '4-5': () => document.getElementById('raas-5').classList.add('revealed'),
-    '4-6': () => document.getElementById('raas-6').classList.add('revealed'),
-    '4-7': () => document.getElementById('raas-7').classList.add('revealed'),
-    '6-2': () => {
+    '5-5': () => document.getElementById('raas-5').classList.add('revealed'),
+    '5-6': () => document.getElementById('raas-6').classList.add('revealed'),
+    '5-7': () => document.getElementById('raas-7').classList.add('revealed'),
+    '7-2': () => {
       const token = slide7VisualToken;
       const show = (id, delay=0) => setTimeout(() => {
         if (token !== slide7VisualToken) return;
@@ -1706,7 +1822,7 @@
       show('patientMood', 0);
       resetSlide7Face();
     },
-    '6-3': () => {
+    '7-3': () => {
       const token = slide7VisualToken;
       const show = (id, delay=0) => setTimeout(() => {
         if (token !== slide7VisualToken) return;
@@ -1717,21 +1833,21 @@
       show('organDamageMap', 0);
       animateFaceToSad();
     },
-    // Slide 7 — end-organ damage, one organ per click
-    '6-4': () => showOrganPair('organBrain', 'calloutBrain'),
-    '6-5': () => showOrganPair('organEye', 'calloutEye'),
-    '6-6': () => showOrganPair('organHeart', 'calloutHeart'),
-    '6-7': () => showOrganPair('organVessel', 'calloutVessel'),
-    '6-8': () => showOrganPair('organKidney', 'calloutKidney'),
-    '6-9': () => triggerPatientDeath()
+    // Slide 7 (index 7) — end-organ damage, one organ per click
+    '7-4': () => showOrganPair('organBrain', 'calloutBrain'),
+    '7-5': () => showOrganPair('organEye', 'calloutEye'),
+    '7-6': () => showOrganPair('organHeart', 'calloutHeart'),
+    '7-7': () => showOrganPair('organVessel', 'calloutVessel'),
+    '7-8': () => showOrganPair('organKidney', 'calloutKidney'),
+    '7-9': () => triggerPatientDeath()
   };
 
   function resetSlideState(slideEl, slideIdx) {
-    if (slideIdx === 4) {
+    if (slideIdx === 5) {
       ['raas-1','raas-2','raas-3','raas-4','raas-5','raas-6','raas-7']
         .forEach(id => { const el = document.getElementById(id); if (el) el.classList.remove('revealed'); });
     }
-    if (slideIdx === 6) {
+    if (slideIdx === 7) {
       slide7VisualToken++;
       resetSlide7Face();
       resetPatientDeath();
@@ -1739,7 +1855,7 @@
        'calloutBrain','calloutEye','calloutHeart','calloutVessel','calloutKidney']
         .forEach(id => { const el = document.getElementById(id); if (el) el.style.opacity = '0'; });
     }
-    if (slideIdx === 2) {
+    if (slideIdx === 3) {
       const grid = document.getElementById('humansGrid');
       if (grid) grid.innerHTML = '';
     }
@@ -1750,19 +1866,19 @@
     '0-1': () => SFX.alarm(),
     '0-2': () => SFX.chord(),
     '1-3': () => SFX.heartbeat(),
-    '2-4': () => SFX.whoosh(),
-    '4-3': () => SFX.blip(),
-    '4-4': () => { SFX.blip(); setTimeout(SFX.blip, 350); setTimeout(SFX.blip, 700); },
-    '4-7': () => SFX.ding(),
-    '6-3': () => SFX.whoosh(),
-    '6-4': () => SFX.reveal(),
-    '6-5': () => SFX.reveal(),
-    '6-6': () => SFX.heartbeat(),
-    '6-7': () => SFX.reveal(),
-    '6-8': () => SFX.reveal(),
-    '6-9': () => { SFX.alarm(); setTimeout(() => SFX.heartbeat(), 250); },
-    '9-4': () => SFX.alarm(),
-    '10-7': () => SFX.chord()
+    '3-4': () => SFX.whoosh(),
+    '5-3': () => SFX.blip(),
+    '5-4': () => { SFX.blip(); setTimeout(SFX.blip, 350); setTimeout(SFX.blip, 700); },
+    '5-7': () => SFX.ding(),
+    '7-3': () => SFX.whoosh(),
+    '7-4': () => SFX.reveal(),
+    '7-5': () => SFX.reveal(),
+    '7-6': () => SFX.heartbeat(),
+    '7-7': () => SFX.reveal(),
+    '7-8': () => SFX.reveal(),
+    '7-9': () => { SFX.alarm(); setTimeout(() => SFX.heartbeat(), 250); },
+    '10-4': () => SFX.alarm(),
+    '11-7': () => SFX.chord()
   };
 
   function showSlide(n, revealAll) {
