@@ -506,8 +506,197 @@
     max-width: 1100px;
     height: 480px;
     position: relative;
+    overflow: visible;
   }
-  .body-svg { position: absolute; left: 50%; transform: translateX(-50%); height: 100%; }
+  .damage-subtitle {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .28em;
+    max-width: 860px;
+    line-height: 1.5;
+  }
+  .damage-subtitle .word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(12px) scale(.96);
+  }
+  .damage-subtitle .emphasis {
+    color: #ff9aa2;
+    font-weight: 700;
+  }
+  .damage-subtitle.revealed .word {
+    animation: damageWordIn .55s cubic-bezier(.22, 1, .36, 1) forwards;
+    animation-delay: calc(var(--word-order) * .12s);
+  }
+  .damage-subtitle.revealed .emphasis {
+    animation:
+      damageWordIn .55s cubic-bezier(.22, 1, .36, 1) forwards,
+      damagePulse 2.2s ease-in-out infinite;
+    animation-delay:
+      calc(var(--word-order) * .12s),
+      calc(.85s + var(--word-order) * .12s);
+  }
+  .damage-subtitle::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: min(100%, 460px);
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, transparent, rgba(230,57,70,.2), rgba(230,57,70,.95), rgba(255,209,102,.9), transparent);
+    opacity: 0;
+    transform: translateX(-50%) scaleX(.2);
+    transform-origin: center;
+  }
+  .damage-subtitle.revealed::after {
+    animation: damageSweep .9s ease .35s forwards;
+  }
+  @keyframes damageWordIn {
+    from { opacity: 0; transform: translateY(12px) scale(.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes damagePulse {
+    0%, 100% { transform: translateY(0) scale(1); text-shadow: 0 0 10px rgba(230,57,70,.18); }
+    50% { transform: translateY(-2px) scale(1.04); text-shadow: 0 0 22px rgba(230,57,70,.42); }
+  }
+  @keyframes damageSweep {
+    from { opacity: 0; transform: translateX(-50%) scaleX(.2); }
+    to { opacity: 1; transform: translateX(-50%) scaleX(1); }
+  }
+  .body-svg .body-fill {
+    fill: rgba(76,201,240,.06);
+  }
+  .body-svg .body-outline,
+  .body-svg .body-detail {
+    fill: none;
+    stroke: #4cc9f0;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .body-svg .body-outline {
+    stroke-width: 2.2;
+    opacity: .82;
+    filter: drop-shadow(0 0 10px rgba(76,201,240,.12));
+  }
+  .body-svg .body-detail {
+    stroke-width: 1.25;
+    opacity: .28;
+  }
+  .body-svg #patientRig {
+    transform-box: fill-box;
+    transform-origin: center bottom;
+    transition: transform .85s cubic-bezier(.2, .8, .2, 1), opacity .3s ease;
+  }
+  .body-svg #patientRig.fallen {
+    transform: translate(56px, 30px) rotate(82deg);
+  }
+  .body-svg .pathology,
+  .body-svg .mood {
+    opacity: 0;
+    transition: opacity .45s ease;
+  }
+  .body-svg .diseased-body {
+    fill: rgba(230,57,70,.1);
+  }
+  .body-svg .artery-main,
+  .body-svg .artery-branch,
+  .body-svg .vessel-highlight-main,
+  .body-svg .vessel-highlight-branch {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .body-svg .artery-main,
+  .body-svg .artery-branch {
+    stroke: #ff6b7a;
+    filter: drop-shadow(0 0 10px rgba(230,57,70,.32));
+  }
+  .body-svg .artery-main {
+    stroke-width: 4.1;
+    stroke-dasharray: 16 10;
+    animation: bloodFlow 2.8s linear infinite, vesselSickPulse 2.2s ease-in-out infinite;
+  }
+  .body-svg .artery-branch {
+    stroke-width: 2.6;
+    stroke-dasharray: 10 12;
+    animation: bloodFlow 3.2s linear infinite, vesselSickPulse 2.5s ease-in-out infinite;
+  }
+  .body-svg .vessel-highlight-main,
+  .body-svg .vessel-highlight-branch {
+    stroke: #ff9966;
+    filter: drop-shadow(0 0 12px rgba(255,153,102,.5));
+    animation: vesselHighlight 1.8s ease-in-out infinite;
+  }
+  .body-svg .vessel-highlight-main { stroke-width: 5; }
+  .body-svg .vessel-highlight-branch { stroke-width: 3.2; }
+  .body-svg .mood .brow,
+  .body-svg .mood .eye,
+  .body-svg .mood .mouth {
+    fill: none;
+    stroke: #ffd166;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .body-svg .mood .brow { stroke-width: 2.1; }
+  .body-svg .mood .eye { stroke-width: 2.4; }
+  .body-svg .mood .mouth { stroke-width: 2.9; }
+  .body-svg .mood .tear {
+    opacity: 0;
+    fill: #4cc9f0;
+    filter: drop-shadow(0 0 8px rgba(76,201,240,.45));
+    transform-origin: center;
+  }
+  .body-svg .mood .tear.visible {
+    opacity: 1;
+    animation: tearDrop 1.8s ease-in-out infinite;
+  }
+  .body-svg .death-face {
+    opacity: 0;
+    transition: opacity .22s ease;
+    pointer-events: none;
+  }
+  .body-svg .death-face.visible {
+    opacity: 1;
+  }
+  .body-svg .death-eye,
+  .body-svg .death-tongue,
+  .body-svg .death-mouth {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .body-svg .death-eye {
+    stroke: #ffd166;
+    stroke-width: 2.5;
+  }
+  .body-svg .death-mouth {
+    stroke: #ffd166;
+    stroke-width: 2.4;
+  }
+  .body-svg .death-tongue {
+    stroke: #ff88dd;
+    stroke-width: 3.2;
+  }
+  @keyframes bloodFlow {
+    from { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: -52; }
+  }
+  @keyframes vesselSickPulse {
+    0%, 100% { opacity: .45; }
+    50% { opacity: 1; }
+  }
+  @keyframes vesselHighlight {
+    0%, 100% { opacity: .45; }
+    50% { opacity: 1; }
+  }
+  @keyframes tearDrop {
+    0%, 100% { transform: translateY(0) scale(.82); }
+    50% { transform: translateY(4px) scale(1); }
+  }
+  .body-svg { position: absolute; left: 50%; transform: translateX(-50%); height: 100%; overflow: visible; }
   .organ-callout {
     position: absolute;
     background: var(--panel);
@@ -720,6 +909,24 @@
     .slide-title { font-size: 1.8em; }
     .grid-3, .grid-4, .pri-sec, .crisis-split, .lifestyle-grid, .path-flow {
       grid-template-columns: 1fr !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .damage-subtitle .word,
+    .damage-subtitle::after,
+    .damage-subtitle.revealed .word,
+    .damage-subtitle.revealed .emphasis,
+    .damage-subtitle.revealed::after,
+    .body-svg .artery-main,
+    .body-svg .artery-branch,
+    .body-svg .vessel-highlight-main,
+    .body-svg .vessel-highlight-branch,
+    .body-svg .mood .tear.visible {
+      animation: none !important;
+      opacity: 1;
+      transform: none;
+      text-shadow: none;
     }
   }
 
@@ -1031,43 +1238,94 @@
 <section class="slide">
   <div class="badge" data-step="1" style="margin-bottom:14px">Complications</div>
   <h2 class="slide-title" data-step="1">End-organ damage — <span class="accent">why it matters</span></h2>
-  <p class="slide-subtitle" data-step="2">Sustained pressure injures every vascular bed in the body.</p>
+  <p class="slide-subtitle damage-subtitle" data-step="2" aria-label="Sustained pressure injures every vascular bed in the body.">
+    <span class="word" style="--word-order:0">Sustained</span>
+    <span class="word" style="--word-order:1">pressure</span>
+    <span class="word emphasis" style="--word-order:2">injures</span>
+    <span class="word" style="--word-order:3">every</span>
+    <span class="word emphasis" style="--word-order:4">vascular</span>
+    <span class="word emphasis" style="--word-order:5">bed</span>
+    <span class="word" style="--word-order:6">in</span>
+    <span class="word" style="--word-order:7">the</span>
+    <span class="word emphasis" style="--word-order:8">body.</span>
+  </p>
 
   <div class="body-diagram">
     <!-- Body silhouette SVG -->
     <svg class="body-svg" viewBox="0 0 200 460">
-      <!-- Head -->
-      <circle cx="100" cy="40" r="28" fill="none" stroke="#4cc9f0" stroke-width="2" opacity=".7"/>
-      <!-- Neck/torso -->
-      <path d="M88 68 L88 80 Q70 88 60 130 L60 250 Q60 280 75 290 L75 380 Q75 400 85 420 H115 Q125 400 125 380 L125 290 Q140 280 140 250 L140 130 Q130 88 112 80 L112 68 Z"
-            fill="none" stroke="#4cc9f0" stroke-width="2" opacity=".7"/>
-      <!-- Arms -->
-      <path d="M62 130 Q40 150 30 220 Q28 270 35 310" fill="none" stroke="#4cc9f0" stroke-width="2" opacity=".7"/>
-      <path d="M138 130 Q160 150 170 220 Q172 270 165 310" fill="none" stroke="#4cc9f0" stroke-width="2" opacity=".7"/>
+      <g id="patientRig">
+        <!-- Simplified anatomical silhouette -->
+        <circle cx="100" cy="40" r="28" class="body-outline"/>
+        <path class="body-fill" d="M92 68 L92 82 C78 86 66 102 60 128 C56 147 56 171 56 201 L56 247 C56 273 63 294 77 307 L85 315 L85 345 C85 368 82 393 77 422 H91 C95 397 98 371 99 346 H101 C102 371 105 397 109 422 H123 C118 393 115 368 115 345 L115 315 L123 307 C137 294 144 273 144 247 L144 201 C144 171 144 147 140 128 C134 102 122 86 108 82 L108 68 Z"/>
+        <path class="body-outline" d="M92 68 L92 82"/>
+        <path class="body-outline" d="M108 68 L108 82"/>
+        <path class="body-outline" d="M92 82 C78 86 66 102 60 128 C56 147 56 171 56 201 L56 247 C56 273 63 294 77 307 L85 315"/>
+        <path class="body-outline" d="M108 82 C122 86 134 102 140 128 C144 147 144 171 144 201 L144 247 C144 273 137 294 123 307 L115 315"/>
+        <path class="body-outline" d="M85 315 C85 345 82 393 77 422"/>
+        <path class="body-outline" d="M115 315 C115 345 118 393 123 422"/>
+        <path class="body-outline" d="M60 134 C46 156 38 187 36 222 C34 264 36 300 40 336"/>
+        <path class="body-outline" d="M140 134 C154 156 162 187 164 222 C166 264 164 300 160 336"/>
+        <path class="body-detail" d="M84 94 Q100 106 116 94"/>
+        <path class="body-detail" d="M90 152 Q100 159 110 152"/>
+        <path class="body-detail" d="M92 314 Q100 324 108 314"/>
+        <path class="body-detail" d="M100 315 L100 420"/>
 
-      <!-- Brain -->
-      <g id="organBrain" opacity="0">
-        <ellipse cx="100" cy="40" rx="22" ry="20" fill="#e63946" opacity=".25"/>
-        <text x="100" y="44" text-anchor="middle" font-size="9" fill="#fff" font-weight="700">BRAIN</text>
-      </g>
-      <!-- Eyes -->
-      <g id="organEye" opacity="0">
-        <circle cx="91" cy="38" r="3" fill="#ffd166"/>
-        <circle cx="109" cy="38" r="3" fill="#ffd166"/>
-      </g>
-      <!-- Heart -->
-      <g id="organHeart" opacity="0">
-        <path d="M100 175 L80 155 a8 8 0 0 1 16 -8 a8 8 0 0 1 16 8 Z" fill="#e63946" opacity=".75"/>
-        <text x="100" y="170" text-anchor="middle" font-size="9" fill="#fff" font-weight="700">♥</text>
-      </g>
-      <!-- Kidneys -->
-      <g id="organKidney" opacity="0">
-        <ellipse cx="82" cy="225" rx="9" ry="14" fill="#b388ff" opacity=".7"/>
-        <ellipse cx="118" cy="225" rx="9" ry="14" fill="#b388ff" opacity=".7"/>
-      </g>
-      <!-- Aorta/vessels -->
-      <g id="organVessel" opacity="0">
-        <path d="M100 175 Q100 220 100 290" stroke="#ff9966" stroke-width="4" fill="none"/>
+        <g id="organDamageMap" class="pathology" opacity="0">
+          <path class="diseased-body" d="M92 82 C78 86 66 102 60 128 C56 147 56 171 56 201 L56 247 C56 273 63 294 77 307 L85 315 L85 345 C85 368 82 393 77 422 H123 C118 393 115 368 115 345 L115 315 L123 307 C137 294 144 273 144 247 L144 201 C144 171 144 147 140 128 C134 102 122 86 108 82 Z"/>
+          <path class="artery-main" d="M100 78 L100 102 C100 138 100 176 100 214 C100 252 100 286 100 316"/>
+          <path class="artery-branch" d="M100 96 C95 87 91 78 90 68"/>
+          <path class="artery-branch" d="M100 96 C105 87 109 78 110 68"/>
+          <path class="artery-branch" d="M100 208 C92 210 83 214 76 224"/>
+          <path class="artery-branch" d="M100 208 C108 210 117 214 124 224"/>
+          <path class="artery-main" d="M100 316 C94 330 91 347 90 366 C89 388 89 406 89 422"/>
+          <path class="artery-main" d="M100 316 C106 330 109 347 110 366 C111 388 111 406 111 422"/>
+        </g>
+
+        <g id="patientMood" class="mood" opacity="0">
+          <path id="faceBrowLeft" class="brow" d="M84 30 Q90 26 96 30"/>
+          <path id="faceBrowRight" class="brow" d="M104 30 Q110 26 116 30"/>
+          <path id="faceEyeLeft" class="eye" d="M85 39 Q91 42 97 39"/>
+          <path id="faceEyeRight" class="eye" d="M103 39 Q109 42 115 39"/>
+          <path id="faceMouth" class="mouth" d="M90 55 Q100 65 110 55"/>
+          <path id="faceTear" class="tear" d="M119 44 C123 49 122 57 118 61 C114 57 113 49 119 44 Z"/>
+        </g>
+
+        <g id="patientDeathFace" class="death-face">
+          <path class="death-eye" d="M84 34 L92 42 M92 34 L84 42"/>
+          <path class="death-eye" d="M108 34 L116 42 M116 34 L108 42"/>
+          <path class="death-mouth" d="M94 54 Q100 57 106 54"/>
+          <path class="death-tongue" d="M100 55 Q106 63 101 69"/>
+        </g>
+
+        <!-- Brain -->
+        <g id="organBrain" opacity="0">
+          <ellipse cx="100" cy="40" rx="22" ry="20" fill="#e63946" opacity=".25"/>
+        </g>
+        <!-- Eyes -->
+        <g id="organEye" opacity="0">
+          <path d="M84 39 Q91 34 98 39" fill="none" stroke="#ff6b7a" stroke-width="2.2" opacity=".9"/>
+          <path d="M102 39 Q109 34 116 39" fill="none" stroke="#ff6b7a" stroke-width="2.2" opacity=".9"/>
+        </g>
+        <!-- Heart -->
+        <g id="organHeart" opacity="0">
+          <path d="M96 166 C93 160 84 161 82 169 C80 177 88 185 96 191 C104 185 112 177 110 169 C108 161 99 160 96 166 Z" fill="#e63946" opacity=".78"/>
+          <text x="96" y="173" text-anchor="middle" font-size="8" fill="#fff" font-weight="700">♥</text>
+        </g>
+        <!-- Kidneys -->
+        <g id="organKidney" opacity="0">
+          <path d="M80 218 C73 221 72 235 80 241 C86 245 90 238 89 229 C88 221 84 216 80 218 Z" fill="#b388ff" opacity=".78"/>
+          <path d="M120 218 C127 221 128 235 120 241 C114 245 110 238 111 229 C112 221 116 216 120 218 Z" fill="#b388ff" opacity=".78"/>
+        </g>
+        <!-- Aorta/vessels -->
+        <g id="organVessel" opacity="0">
+          <path class="vessel-highlight-main" d="M100 78 L100 102 C100 138 100 176 100 214 C100 252 100 286 100 316"/>
+          <path class="vessel-highlight-branch" d="M100 96 C95 87 91 78 90 68"/>
+          <path class="vessel-highlight-branch" d="M100 96 C105 87 109 78 110 68"/>
+          <path class="vessel-highlight-branch" d="M100 208 C92 210 83 214 76 224"/>
+          <path class="vessel-highlight-branch" d="M100 208 C108 210 117 214 124 224"/>
+          <path class="vessel-highlight-main" d="M100 316 C94 330 91 347 90 366 C89 388 89 406 89 422"/>
+          <path class="vessel-highlight-main" d="M100 316 C106 330 109 347 110 366 C111 388 111 406 111 422"/>
+        </g>
       </g>
     </svg>
 
@@ -1090,9 +1348,16 @@
     </div>
     <div class="organ-callout left" id="calloutKidney" style="top:280px; left:50px; opacity:0; transition: opacity .5s ease">
       <h4>🫘 Kidney</h4>
-      <p>Hypertensive nephrosclerosis → CKD → ESRD (2nd commonest cause after DM)</p>
+      <p>Hypertensive nephrosclerosis → CKD → ESRD (second most common cause after DM)</p>
     </div>
   </div>
+  <span data-step="3" aria-hidden="true" style="display:none"></span>
+  <span data-step="4" aria-hidden="true" style="display:none"></span>
+  <span data-step="5" aria-hidden="true" style="display:none"></span>
+  <span data-step="6" aria-hidden="true" style="display:none"></span>
+  <span data-step="7" aria-hidden="true" style="display:none"></span>
+  <span data-step="8" aria-hidden="true" style="display:none"></span>
+  <span data-step="9" aria-hidden="true" style="display:none"></span>
 </section>
 
 <!-- ══════════════ SLIDE 8 — LIFESTYLE ══════════════ -->
@@ -1325,6 +1590,50 @@
   let currentSlide = 0;
   let currentStep = 0;
   const total = slides.length;
+  let slide7VisualToken = 0;
+
+  function setQuadPath(id, points) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.setAttribute('d', `M${points[0]} ${points[1]} Q${points[2]} ${points[3]} ${points[4]} ${points[5]}`);
+  }
+
+  function setFaceMood(progress) {
+    const p = Math.max(0, Math.min(progress, 1));
+    setQuadPath('faceBrowLeft', [84, 30 + p, 90, 26 + 3 * p, 96, 30 - 3 * p]);
+    setQuadPath('faceBrowRight', [104, 30 - 3 * p, 110, 26 + 3 * p, 116, 30 + p]);
+    setQuadPath('faceEyeLeft', [85, 39 + p, 91, 42 - 2 * p, 97, 39 + p]);
+    setQuadPath('faceEyeRight', [103, 39 + p, 109, 42 - 2 * p, 115, 39 + p]);
+    setQuadPath('faceMouth', [90, 55 + 4 * p, 100, 65 - 15 * p, 110, 55 + 4 * p]);
+  }
+
+  function resetSlide7Face() {
+    setFaceMood(0);
+    const tear = document.getElementById('faceTear');
+    if (tear) tear.classList.remove('visible');
+  }
+
+  function animateFaceToSad() {
+    const token = slide7VisualToken;
+    const tear = document.getElementById('faceTear');
+    if (tear) tear.classList.remove('visible');
+    setFaceMood(0);
+
+    const start = performance.now();
+    const duration = 850;
+
+    const tick = now => {
+      if (token !== slide7VisualToken) return;
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      setFaceMood(eased);
+
+      if (t < 1) requestAnimationFrame(tick);
+      else if (tear) tear.classList.add('visible');
+    };
+
+    requestAnimationFrame(tick);
+  }
 
   function getMaxStep(slideEl) {
     let max = 0;
@@ -1343,6 +1652,27 @@
   }
 
   // ── Slide-specific handlers ──
+  function showOrganPair(organId, calloutId) {
+    const o = document.getElementById(organId);
+    const c = document.getElementById(calloutId);
+    if (o) o.style.opacity = '1';
+    if (c) c.style.opacity = '1';
+  }
+  function triggerPatientDeath() {
+    const rig = document.getElementById('patientRig');
+    const mood = document.getElementById('patientMood');
+    const death = document.getElementById('patientDeathFace');
+    if (mood) mood.style.opacity = '0';
+    if (death) death.classList.add('visible');
+    if (rig) rig.classList.add('fallen');
+  }
+  function resetPatientDeath() {
+    const rig = document.getElementById('patientRig');
+    const death = document.getElementById('patientDeathFace');
+    if (rig) rig.classList.remove('fallen');
+    if (death) death.classList.remove('visible');
+  }
+
   const stepHandlers = {
     // Slide 3 — humans grid animation
     '2-4': () => {
@@ -1366,18 +1696,34 @@
     '4-5': () => document.getElementById('raas-5').classList.add('revealed'),
     '4-6': () => document.getElementById('raas-6').classList.add('revealed'),
     '4-7': () => document.getElementById('raas-7').classList.add('revealed'),
-    // Slide 7 — end-organ damage progressive reveal
-    '6-3': () => {
+    '6-2': () => {
+      const token = slide7VisualToken;
       const show = (id, delay=0) => setTimeout(() => {
+        if (token !== slide7VisualToken) return;
         const el = document.getElementById(id);
         if (el) el.style.opacity = '1';
       }, delay);
-      show('organBrain', 0);    show('calloutBrain', 100);
-      show('organEye', 600);    show('calloutEye', 700);
-      show('organHeart', 1200); show('calloutHeart', 1300);
-      show('organVessel', 1800); show('calloutVessel', 1900);
-      show('organKidney', 2400); show('calloutKidney', 2500);
-    }
+      show('patientMood', 0);
+      resetSlide7Face();
+    },
+    '6-3': () => {
+      const token = slide7VisualToken;
+      const show = (id, delay=0) => setTimeout(() => {
+        if (token !== slide7VisualToken) return;
+        const el = document.getElementById(id);
+        if (el) el.style.opacity = '1';
+      }, delay);
+      show('patientMood', 0);
+      show('organDamageMap', 0);
+      animateFaceToSad();
+    },
+    // Slide 7 — end-organ damage, one organ per click
+    '6-4': () => showOrganPair('organBrain', 'calloutBrain'),
+    '6-5': () => showOrganPair('organEye', 'calloutEye'),
+    '6-6': () => showOrganPair('organHeart', 'calloutHeart'),
+    '6-7': () => showOrganPair('organVessel', 'calloutVessel'),
+    '6-8': () => showOrganPair('organKidney', 'calloutKidney'),
+    '6-9': () => triggerPatientDeath()
   };
 
   function resetSlideState(slideEl, slideIdx) {
@@ -1386,7 +1732,10 @@
         .forEach(id => { const el = document.getElementById(id); if (el) el.classList.remove('revealed'); });
     }
     if (slideIdx === 6) {
-      ['organBrain','organEye','organHeart','organVessel','organKidney',
+      slide7VisualToken++;
+      resetSlide7Face();
+      resetPatientDeath();
+      ['organDamageMap','patientMood','organBrain','organEye','organHeart','organVessel','organKidney',
        'calloutBrain','calloutEye','calloutHeart','calloutVessel','calloutKidney']
         .forEach(id => { const el = document.getElementById(id); if (el) el.style.opacity = '0'; });
     }
@@ -1406,6 +1755,12 @@
     '4-4': () => { SFX.blip(); setTimeout(SFX.blip, 350); setTimeout(SFX.blip, 700); },
     '4-7': () => SFX.ding(),
     '6-3': () => SFX.whoosh(),
+    '6-4': () => SFX.reveal(),
+    '6-5': () => SFX.reveal(),
+    '6-6': () => SFX.heartbeat(),
+    '6-7': () => SFX.reveal(),
+    '6-8': () => SFX.reveal(),
+    '6-9': () => { SFX.alarm(); setTimeout(() => SFX.heartbeat(), 250); },
     '9-4': () => SFX.alarm(),
     '10-7': () => SFX.chord()
   };
@@ -1469,10 +1824,42 @@
             else el.classList.remove('revealed');
           });
       }
+      if (currentSlide === 6 && currentStep < 9) {
+        resetPatientDeath();
+        const mood = document.getElementById('patientMood');
+        if (mood && currentStep >= 2) mood.style.opacity = '1';
+      }
+      if (currentSlide === 6) {
+        const organSteps = [
+          [4, 'organBrain', 'calloutBrain'],
+          [5, 'organEye',   'calloutEye'],
+          [6, 'organHeart', 'calloutHeart'],
+          [7, 'organVessel','calloutVessel'],
+          [8, 'organKidney','calloutKidney']
+        ];
+        organSteps.forEach(([s, organId, calloutId]) => {
+          if (currentStep < s) {
+            const o = document.getElementById(organId);
+            const c = document.getElementById(calloutId);
+            if (o) o.style.opacity = '0';
+            if (c) c.style.opacity = '0';
+          }
+        });
+      }
       if (currentSlide === 6 && currentStep < 3) {
-        ['organBrain','organEye','organHeart','organVessel','organKidney',
-         'calloutBrain','calloutEye','calloutHeart','calloutVessel','calloutKidney']
-          .forEach(id => { const el = document.getElementById(id); if (el) el.style.opacity = '0'; });
+        slide7VisualToken++;
+        const damage = document.getElementById('organDamageMap');
+        if (damage) damage.style.opacity = '0';
+        if (currentStep >= 2) {
+          const mood = document.getElementById('patientMood');
+          if (mood) mood.style.opacity = '1';
+          resetSlide7Face();
+        }
+      }
+      if (currentSlide === 6 && currentStep < 2) {
+        resetSlide7Face();
+        const mood = document.getElementById('patientMood');
+        if (mood) mood.style.opacity = '0';
       }
       updateUI();
     } else if (currentSlide > 0) {
